@@ -1,3 +1,3 @@
 
-# E-Commerce web site using MEAN STACK. (mongodb,ExpressJS,AngularJS,nodeJS)
+# E-Commerce web site using MEAN STACK. (mongodb,Express.js,AngularJS,node.js)
      
