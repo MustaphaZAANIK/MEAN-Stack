@@ -1,0 +1,26 @@
+{
+  "name": "shopCart",
+  "version": "1.0.0",
+  "description": "Your onestop for shopping",
+  "main": "app.js",
+  "dependencies": {
+    "async": "^2.6.0",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "cloudinary": "^1.11.0",
+    "cookie-parser": "^1.4.3",
+    "express": "latest",
+    "express-session": "^1.15.6",
+    "mongoose": "latest",
+    "morgan": "latest",
+    "multer": "^1.3.0",
+    "ng-file-upload": "^12.2.13",
+    "nodemailer": "^4.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Ganapathy <contact@tparurahul17@gmail.com>",
+  "license": "ISC"
+}

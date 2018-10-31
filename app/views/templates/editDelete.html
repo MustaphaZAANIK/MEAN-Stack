@@ -1,0 +1,103 @@
+
+      <!--  SINGLE PRODUCT DETAIL -->
+      <div class="row text-center">
+          <h3>Détails de l'offre :</h3>
+		    	<div class="col-12 edit-card" ng-if="edDelCtrl.showProduct">
+		    		<div class="row">
+              <table class="table" style="text-align: left;">
+                <tbody style="border: solid;border-color: grey;">
+                  <tr>
+                    <th scope="row"></th>
+                    <td><h4 style="color: #0383c0;">Nom :</h4></td>
+                    <td><h3>{{ edDelCtrl.product.productName }}</h3></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td><h4 style="color: #0383c0;">Ville :</h4></td>
+                    <td><h4>{{ edDelCtrl.product.color }}</h4></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td><h4 style="color: #0383c0;">Catégorie :</h4></td>
+                    <td><h4>{{ edDelCtrl.product.category}}</h4></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td><h4 style="color: #0383c0;">Prix :</h4></td>
+                    <td><h4>{{ edDelCtrl.product.price}} DH.</h4></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td><h4 style="color: #0383c0;">Description</h4></td>
+                    <td><h4>{{ edDelCtrl.product.additionalInfo}}</h4></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td><h4 style="color: #0383c0;">Sera dispo dans</h4></td>
+                    <td><h4>{{ edDelCtrl.product.availableIn }} Jours</h4></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td><h4 style="color: #0383c0;">contacter par téléphone</h4></td>
+                    <td><h4>+212 {{ edDelCtrl.product.phone}}</h4></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td><h4 style="color: #0383c0;">contacter par email</h4></td>
+                    <td><h4>{{ edDelCtrl.product.email }}</h4></td>
+                  </tr>
+                </tbody>
+              </table>
+		    			
+		    		</div>
+		    		<div style="display: flex; justify-content: space-evenly; margin-top: 1rem">
+				    	<button class="btn btn-muted" ng-click="edDelCtrl.showHide()">Modifier</button>
+              <button class="btn btn-warning" ng-click="edDelCtrl.addToCart()">Demander</button>
+				   		<button class="btn btn-danger" ng-click="edDelCtrl.deleteProduct()">Supprimer</button>
+		   			</div>
+		    	</div>
+		    	
+			</div>
+
+      <!-- EDIT A PRODUCT FORM-->
+    	 <form ng-submit = "edDelCtrl.editProduct()" ng-if="edDelCtrl.showForm">
+          <div class="row">
+              <div class="col-sm-3 offset-sm-2">
+                <div class="card">
+                  <div class="card-block">
+                      <div class="form-group">
+                        <label for="product-name"></label>
+                        <input type="text" name="inputProduct" ng-model="edDelCtrl.product.productName" class="form-control" id="product-name" aria-describedby="nameHelp" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="product-category">Catégorie</label>
+                        <input type="text" name="inputCategory" ng-model="edDelCtrl.product.category" class="form-control" id="product-cateogry" aria-describedby="categoryHelp" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="product-color">Ville</label>
+                        <input type="text" name="inputColor" ng-model="edDelCtrl.product.color" class="form-control" id="product-color" aria-describedby="colorHelp" required>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 offset-sm-2">
+                <div class="card">
+                  <div class="card-block">
+                      <div class="form-group">
+                        <label for="product-price">Prix</label>
+                        <input type="number" name="inputPrice" ng-model="edDelCtrl.product.price" class="form-control" id="product-price" aria-describedby="priceHelp" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="product-addinfo">Description</label>
+                        <input type="text" name="inputCategory" ng-model="edDelCtrl.product.additionalInfo" class="form-control" id="product-addinfo" aria-describedby="addinfoHelp" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="product-avail">Sera dispo dans</label>
+                        <input type="number" name="inputDay" ng-model="edDelCtrl.product.availableIn" class="form-control" id="product-avail" aria-describedby="dayHelp" required>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <button class="btn btn-success" type="submit" style="display: block;margin: 0px auto;">Enregistrer</button>
+        </form>

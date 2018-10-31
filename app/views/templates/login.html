@@ -1,0 +1,27 @@
+      <!--  LOGIN PAGE  -->
+       
+        <div class="row" style="margin-top: 1rem;">
+          <div class="col-md-8 offset-md-2">
+            <div class="card" style="border: 5px solid #d0c6c6;border-radius: 10px;">
+              <div class="card-block">
+                <h3 class="card-title text-center">Login</h3>
+                <form ng-submit = "loginCtrl.submitLogin()">
+                  <div class="form-group">
+                    <label for="Email"><strong>Email address</strong></label>
+                    <input type="email" name="inputEmail" ng-model="loginCtrl.email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="Password"><strong>Password</strong></label>
+                    <input type="password" name="inputPassword" ng-model="loginCtrl.password" class="form-control" id="Password" placeholder="Enter Password" required>
+                  </div>
+                  <button type="submit" class="btn btn-success" style="margin-bottom: 1rem;">Log-in</button>
+                   <a ng-href="#/password/forgot" style="vertical-align: super;padding: 0rem 0.75rem;">Forgot Password?</a>
+                </form>
+                <div class="card-footer text-muted">
+                  <p>If new user,<a ng-href="#/user/signup"> Signup here</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>

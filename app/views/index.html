@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cart">
+
+<head>
+    <title>Ared Immobilier</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://fonts.googleapis.com/css?family=Oswald:700" rel="stylesheet" type="text/css" />
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- BOOTSRAP 4 CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <!-- SWEET ALERT CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet">
+
+    <!-- CUSTOM stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body ng-controller="LoginController as loginCtrl">
+    <header>
+        <div class="promo-banner">
+            <div>
+                <span class="text-promo">
+             Des réductions jusqu'a 50% sur toutes les locations cet été *
+              </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <h1 class="logo"><i class="fa fa-tag"></i> Offres <span class="primary">Spéciales</span></h1>
+                <p class="subtext">Ared Immobilier</p>
+            </div>
+            <!-- col-md-4 -->
+
+            <div class="col-md-8 col-sm-12" style="padding-top: 45px !important;" ng-if="!showLogout">
+                <form class="form-inline" ng-submit="loginCtrl.submitLogin()" style="background-color: #0383c0; border-radius: 5px; padding: 5px 5px 5px 5px; color: white;">
+                    <div style="width: 4px;"></div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" ng-model="loginCtrl.email" placeholder="Enter Email">
+                    </div>
+                    <div style="width: 4px;"></div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" ng-model="loginCtrl.password" placeholder="Enter Password">
+                    </div>
+                    <div style="width: 4px;"></div>
+                    <button type="submit" class="btn btn-default">Login</button>
+                    <div style="width: 4px;"></div>
+                    <a ng-href="#/user/signup"><button class="btn btn-default">Sign up</button></a>
+                </form>
+            </div>
+            <!-- col-md-8 -->
+        </div>
+        <!-- row -->
+    </header>
+    <div style="height: 35px !important"></div>
+    <div class="containerr">
+        <nav class="navbar navbar-inverse bg-inverse">
+            <div class="container navi-flex">
+                <div class="navbar-header">
+                    <a class="navbar-brand" style="color: ghostwhite;"><i class="fa fa-home" aria-hidden="true" style="color:blue;padding-left: -10px !important;"></i> Acceuil</a>
+                </div>
+                <ul class="list-inline" style="color: ghostwhite;">
+                    <li class="list-inline-item" ng-if="showHome">
+                        <a class="anchor-style" ng-href="#/user/dashboard">Acceuil</a>
+                    </li>
+                    <li class="list-inline-item" ng-if="showCart">
+                        <a class="anchor-style" ng-href="#/cart/all">Mes demandes</a>
+                    </li>
+                    <li class="list-inline-item" ng-if="showLogout">
+                        <a class="anchor-style" ng-href="/user/logout">Se déconnecter</a>
+                    </li>
+                    <li class="list-inline-item" ng-if="showLogout">
+                        <a class="anchor-style" href="#"><span class="fa fa-user-o" style="color: blue;"></span> {{ dashCtrl.email }} </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Fin de navbar -->
+        <!-- <div class="item" style="background-image: url(img/back.jpg); height: 350px;"> -->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+                <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img class="first-slide" src="img/back.jpg" alt="First slide">
+                    <div class="container">
+                        <div class="carousel-caption text-left">
+                            <h1>Example headline.</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item active">
+                    <img class="second-slide" src="img/slider3.jpg" alt="Second slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Another example headline.</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="third-slide" src="img/slider2.jpg" alt="Third slide">
+                    <div class="container">
+                        <div class="carousel-caption text-right">
+                            <h1>One more for good measure.</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">précédant</span>
+        </a>
+            <a class="carousel-control-next" href="" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">suivant</span>
+        </a>
+        </div>
+        <!-- Fin de Slider -->
+        <div class="jumbotron">
+            <!-- Nav tabs -->
+            <ul class="tablist" role="tablist">
+                <li role="presentation" class="active"><a href="" aria-controls="featured-item" role="tab" data-toggle="tab">Villa</a></li>
+                <li role="presentation"><a href="" aria-controls="best-seller" role="tab" data-toggle="tab">Best Seller</a></li>
+                <li role="presentation"><a href="" aria-controls="discount" role="tab" data-toggle="tab">Ryad Traditionnelle</a></li>
+                <li role="presentation"><a href="" aria-controls="premium" role="tab" data-toggle="tab">Premium </a></li>
+                <li role="presentation"><a href="" aria-controls="gift-idea" role="tab" data-toggle="tab">Offres spéciales</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="villa">
+                    <div class="tab-text">
+                        <h2>Villa Vue Mer </h2>
+                        <p>VILLA A VENDRE SUR LA PLAGE ACHAKAR :GARAGE + CUISINE AMÉRICAINE + CHAMBRE BONNE. CUISINE AMÉRICAINE + SÉJOUR + 2 SUITES + SDB+ JARDIN + LOGEMENT GARDIEN.+ HAMMAM BELDI SALONS AVEC BELLE VITRE VUE SUR MÈRE + SUITE + JARDIN + PISCINE
+                            SUITE. </p>
+                        <a href="product.html" class="btn btn-default">Plus</a>
+                    </div>
+                    <!-- tab-text -->
+                    <img class="slide-img" src="img/villa.jpg" />
+                </div>
+                <div role="tabpanel" class="tab-pane" id="best">
+                    <div class="tab-text">
+                        <h2>Appartement moyen</h2>
+                        <p>Appartement moyen standing R+3 avec ascenseur , parking dans la ville Casablanca à coté de l’extrême du boulevard Taddart .elle est composée de 2 à 3 chambres, un salon, cuisine équipée et salle de bain </p>
+                        <a href="product.html" class="btn btn-default">Plus</a>
+                    </div>
+                    <!-- tab-text -->
+                    <img class="slide-img" src="img/bestsel.jpg" />
+                </div>
+                <div role="tabpanel" class="tab-pane" id="Ryad">
+                    <div class="tab-text">
+                        <h2>Ryad Traditionel</h2>
+                        <p>A Marrakech, vous serez confronté à une vaste sélection de riad. Tous différents les uns des autres, ces maisons traditionnelles de Maroc ont chacun leur propre décoration.</p>
+                        <a href="product.html" class="btn btn-default">Plus</a>
+                    </div>
+                    <!-- tab-text -->
+                    <img class="slide-img" src="img/tradut.jpg" />
+                </div>
+                <div role="tabpanel" class="tab-pane" id="premium">
+                    <div class="tab-text">
+                        <h2>Appartement Luxe </h2>
+                        <p>Location de deux appartement de luxe meublé , parfaitement situer , proche de toutes les commodités nécessaire , dans un immeuble bien entretenue , équipée par garage et ascenseur . Se compose comme suite :Un salon séjours Deux
+                            chambres a coucher avec balcon Cuisine moderne équipée de A a Z
+                        </p>
+                        <a href="product.html" class="btn btn-default">Plus</a>
+                    </div>
+                    <!-- tab-text -->
+                    <img class="slide-img" src="img/luxe.jpg" />
+                </div>
+                <div role="tabpanel" class="tab-pane" id="special">
+                    <div class="tab-text">
+                        <h2>Bagnoles à Ifrane</h2>
+                        <p>ans ville avec commerces et écoles, ce pavillon plain-pied de 76 M², il se découvre par son entrée, salle/salon accès terrasse, cuisine aménagée et équipée accès terrasse, salle de bains avec meuble, deux chambres carrelage, buanderie,
+                            garage porte électrique, comble aménageable, terrain clos de 460 M²</p>
+                        <a href="product.html" class="btn btn-default">Plus</a>
+                    </div>
+                    <!-- tab-text -->
+                    <img class="slide-img" src="img/Bagnoles.jpg" />
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid view" ng-view style="padding-top: 15px;">
+        </div>
+        <section id="contact">
+            <div class="container">
+                <div class="well well-sm">
+                    <h3><strong></strong></h3>
+                </div>
+
+                <div class="row">
+                    
+
+                    <!-- <div class="col-md-5">
+                        <h4><strong>Contactez-nous</strong></h4>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="" value="" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="" value="" placeholder="E-mail">
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" class="form-control" name="" value="" placeholder="Phone">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="" rows="3" placeholder="Message"></textarea>
+                            </div>
+                            <button class="btn btn-default" type="submit" name="button">
+                  <i class="fa fa-paper-plane-o" aria-hidden="true"></i> envoyer
+              </button>
+                        </form>
+                    </div> -->
+                </div>
+                <div >
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.5002076070173!2d-6.8688476853027325!3d33.97968342899891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76cc334a66611%3A0xee9ee437a0cfbaea!2sInstitut+National+des+Postes+et+T%C3%A9lecomunications!5e0!3m2!1sfr!2sfr!4v1493065689040"
+                            width="100%" height="315" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+            </div>
+        </section>
+        <footer>
+            <div class="footer-style" style="border-radius: 5px;">
+                <h5 style="margin: 1rem;" class="text-muted">
+                    <i>&copy; Ared Immobilier Copyright 2018 - <a href="#">Terms</a> &middot; <a href="#">Privacy</a></i>
+                </h5>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <!--  FOR TOOLTIP -->
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+
+    <!-- Angular FILES -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+
+    <script type="text/javascript" src="js/sweetalert.js"></script>
+
+    <script type="text/javascript" src="angular/app.js"></script>
+
+    <script type="text/javascript" src="angular/services/service.js"></script>
+    <!-- Angular controllers -->
+
+    <script type="text/javascript" src="angular/controllers/login-controller.js"></script>
+    <script type="text/javascript" src="angular/controllers/signup-controller.js"></script>
+    <script type="text/javascript" src="angular/controllers/dash-controller.js"></script>
+    <script type="text/javascript" src="angular/controllers/createProduct-controller.js"></script>
+    <script type="text/javascript" src="angular/controllers/allProducts-controller.js"></script>
+    <script type="text/javascript" src="angular/controllers/edit-controller.js"></script>
+    <script type="text/javascript" src="angular/controllers/cart-controller.js"></script>
+    <script type="text/javascript" src="angular/controllers/forgot-controller.js"></script>
+
+    <script type="text/javascript" src="angular/routes.js"></script>
+
+</body>
+
+</html>

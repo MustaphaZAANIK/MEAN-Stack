@@ -1,0 +1,84 @@
+
+	<!-- ROW FOR CART-TITLE AND USER-CART INFO -->
+<div class="row" style="margin-bottom:2rem;">
+	<div class="col-12">
+		<div class="row">
+			<div class="col-8 col-md-9 cart-page-title cart-title">
+				<h3> Toutes mes demandes </h3>
+			</div>
+			<div class="col-4 col-md-3  text-center cart-page-title user-title">
+			    <h5>{{ cartCtrl.firstName }}</h5>
+			    <h6>
+			    <span><i class="fa fa-home fa-2x" style="margin-right: 0.5rem;margin-bottom: 0.5rem;"></i>
+			    </span>
+			    {{ cartCtrl.cartTotal | currency:'DH.'}}</h6>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- PRODUCT-DETAILS IN CART -->
+<div class="row">
+	<div class="table-responsive">
+		<table class="table table-bordered table-condensed" ng-if="!cartCtrl.showCartIcon">
+			<thead class=" thead-default text-center">
+			<tr>
+				
+				<th>demandes</th>
+				<th></th>	
+				<th>Total</th>
+			</tr>
+			</thead>
+			<tbody ng-repeat = "items in cartCtrl.cartItems">
+				<tr class="highlight">
+					
+					<td class="product-td">
+					<div>
+						<p><b>{{ items.productName }}</b></p>
+						<ul class="list-inline">
+							<li class="list-inline-item"><p>Catégorie : {{ items.category }}</p></li>
+						</ul>
+						<button class="btn btn-danger btn-sm" ng-click="cartCtrl.deleteItem(items.productId,$index,false)" data-toggle="tooltip" data-placement="bottom" title="Remove from cart">supprimer
+       					</button>
+       					</div>
+					</td>
+					
+					<!-- QUANTITY DETAILS -->
+					<td class="product-quantity">
+						<div class="product-flex"> 
+							<div class="col-11 col-md-6 form-group" style="margin: 0.5rem auto; padding-top: 10px;">          
+				                
+				            </div>         
+						</div>
+					</td>
+					<!-- TOTAL DETAILS -->
+					<td style="width:20%;">
+						 <p class="card-text text-center"><b>DH.{{ items.price }}</b></p>
+					</td>
+
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td></td>
+					<td class="text-center">
+						<a class="btn btn-warning" ng-href="#/product/all">
+							<span><i class="fa fa-chevron-left"></i></span>
+						 Acceuil
+						</a>
+       				</td>
+       				<td></td>
+				</tr>
+			</tfoot>
+		</table>
+		
+	</div>
+</div>
+
+<div class="row" ng-if="cartCtrl.showCartIcon">
+	<div class="col-12 text-center">
+		<span><i class="fa fa-shopping-cart" style="color:dimgray;font-size:7em;"></i></span>
+		<h5 class="text-muted">Rien ici</h5>
+	</div>
+</div>
+

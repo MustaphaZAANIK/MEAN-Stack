@@ -1,0 +1,22 @@
+						
+
+			<h2 class="text-center" style="font-family: 'Berkshire Swash', cursive; padding-top: 0;"> </h2>
+			<!-- ALERT IF NO PRODUCTS PRESENT -->
+			<div class="alert alert-danger" ng-if="allCtrl.emptyProducts" role="alert">
+			  <strong> Pas d'offres pour le moment </strong>
+			</div>
+			<!-- ALL PRODUCTS -->
+			<h2 class="text-center" style="border: solid; padding:7px;border-radius: 9px;">Offres d'Appartements</h2>
+			<div class="row" >
+		    	<div class="col-10 col-md-4 all-products text-center" ng-repeat = "item in allCtrl.allProducts" style="border: solid;border-color:#0383c0; padding: 10px;">
+		    		<ul class="list-group list-group-flush">
+						
+					    <li class="list-group-item" style="color: #0383c0;"><b>{{ item.productName }}</b></li>
+						<li class="list-group-item"><b>Catégorie</b>  : {{ item.category }}</li>
+						<li class="list-group-item"><b>Propriétaire</b> : {{ item.owner.firstName }}</li>
+						<li class="list-group-item"><b>Téléphone</b>  : {{ item.phone }}</li>
+						<li class="list-group-item"><b>Prix</b> : {{ item.price }} DH</li>
+		  			</ul>
+		    		<a class="btn btn-primary" ng-href="#/product/{{ item._id }}" style="margin-top: 1rem;"> Savoir plus</a>
+		    	</div>
+			</div>

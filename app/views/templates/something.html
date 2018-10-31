@@ -1,0 +1,65 @@
+<div class="row" style="margin-bottom:4rem;">
+	
+	<div class="col-12 col-sm-10 sm-offset-1">
+		<h2 class="cart-title"> Shopping Summary </h2>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-12">
+		<div class="row" ng-repeat = "items in cartCtrl.cartItems">
+			<div class="col-6">
+    			<div class="card">
+      				<div class="card-block">
+       					<h3 class="card-title">Offre</h3>
+        				<p class="card-text">{{ items.productName }}</p>
+       					<button class="btn btn-danger btn-sm" ng-click="cartCtrl.deleteItem(items.productId)">
+       						<span>
+	       						<i class="fa fa-trash" data-toggle="tooltip" data-placement="bottom" title="Remove from cart">
+	       						</i>
+       						</span>
+       					</button>
+     				</div>
+    			</div>
+  			</div>
+  			<div class="col-6">
+    			<div class="card">
+      				<div class="card-block">
+       					<h3 class="card-title">Prix</h3>
+        				<p class="card-text">{{ items.price }}</p>	
+     				</div>
+    			</div>
+  			</div>
+  			<div class="col-6">
+    			<div class="card">
+      				<div class="card-block">
+       					<h3 class="card-title"></h3>
+       					<div style="display: flex;justify-content: space-between;">
+        				<button class="btn btn-muted btn-sm"><span><i class="fa fa-plus"></i></span>
+							</button>							
+							<input type="text" class="form-control" name="quantity" value='{{ items.amount }}'>						
+							<button class="btn btn-muted btn-sm"><span><i class="fa fa-minus"></i></span>
+							</button>
+						</div>
+     				</div>
+    			</div>
+  			</div>
+  			<div class="col-6">
+    			<div class="card">
+      				<div class="card-block">
+       					<h3 class="card-title">Total</h3>
+        				<p class="card-text">{{ items.price }}</p>	
+     				</div>
+    			</div>
+  			</div>
+		</div>		
+	</div>				
+</div>
+<!-- </div> -->
+<div class="row" ng-if="cartCtrl.showCartIcon">
+	<div class="col-12 text-center">
+		<span><i class="fa fa-shopping-cart fa-5x" style="color:dimgray"></i></span>
+		<h6 class="text-muted">Tu n'as fait aucune demande</h6>
+	</div>	
+</div>
+

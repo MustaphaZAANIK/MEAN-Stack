@@ -1,0 +1,33 @@
+
+        <div class="row">
+          <div class="col-sm-6 offset-sm-3">
+            <div class="card" style="border: 5px solid #edcbcb;border-radius: 10px;">
+              <div class="card-block">
+                <h4 class="card-title text-center" style="font-family: 'Berkshire Swash', cursive;">
+                  <blockquote>To <s>err</s> <i>Forget</i> is human</q></blockquote>
+                </h4>
+                <form ng-submit="forgotCtrl.resetPass()">
+                  <div class="form-group">
+                    <label for="Email"><b>Email</b></label>
+                    <input type="text" name="inputEmail" ng-model="forgotCtrl.emailForReset" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                    <small class="text-muted">Recovery link will be sent to this E-mail</small>
+                  </div>
+                  <button ng-click="forgotCtrl.showAlert =! forgotCtrl.showAlert" class="btn btn-success" type="submit" style="margin-bottom: 0.5rem">Submit
+                    <span><i class="fa fa-paper-plane-o"></i>
+                    </span>
+                  </button>
+                   <div ng-if="forgotCtrl.showAlert">
+                    <h6>
+                    <span><i class="fa fa-spinner fa-2x" aria-hidden="true"></i>
+                    </span>
+                    Please wait....
+                    </h6>
+                  </div>
+                </form>
+                <div class="card-footer text-muted">
+                  <a ng-href="#/">Back to Login</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
